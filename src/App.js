@@ -29,7 +29,7 @@ class App extends Component {
         this.setState({
           user: userJSON.user
         }, () => {
-          this.props.history.push('/rappers')
+          this.props.history.push('/home')
         })
       })
     }
@@ -47,9 +47,8 @@ class App extends Component {
       .then(resp => resp.json())
       .then(userData => {
         this.setState({ user: userData.user }, () => {
-          console.log("This is what I'm getting after signing up: ", userData)
           localStorage.setItem("token", userData.jwt);
-          this.props.history.push("/rappers");
+          this.props.history.push("/home");
         });
       });
   };
@@ -68,7 +67,7 @@ class App extends Component {
         localStorage.setItem('token', userData.jwt)
         this.setState(
           { user: userData.user },
-          () => this.props.history.push("/rappers")
+          () => this.props.history.push("/home")
         )
       });
   };
@@ -92,17 +91,25 @@ class App extends Component {
     return (
       <div>
         <ul>
-         <Link to="/signup">
-           <li>Sign Up</li>
-         </Link>
-         <Link to="/login">
-           <li>Log In</li>
-         </Link>
-         <li
-           onClick={(e) => this.handleLogout()}
-         >
-           Log Out
-         </li>
+
+         {this.state.user !== undefined ?
+           <>
+           <li onClick={(e) => this.handleLogout()}>
+             Log Out
+           </li>
+           </>
+           :
+            <>
+           <Link to="/signup">
+             <li>Sign Up</li>
+           </Link>
+           <Link to="/login">
+             <li>Log In</li>
+           </Link>
+              </>
+         }
+
+
        </ul>
 
         <Switch>

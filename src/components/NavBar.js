@@ -4,7 +4,7 @@ import { Link, withRouter} from "react-router-dom";
 class NavBar extends Component {
 
   render(){
-  
+
     return (
         <div className="ui menu">
         <div className="header left item">
@@ -17,12 +17,14 @@ class NavBar extends Component {
               Home
             </a>
         </Link>
+
         <Link to="/home">
           <a className="item">
           <i class="user icon"></i>
              My Profile
           </a>
         </Link>
+
         <Link to="/signup">
           <a className="item">
           <i class="sign in alternate icon"></i>
@@ -36,6 +38,7 @@ class NavBar extends Component {
             Log In
           </a>
         </Link>
+
         <Link to="/signup">
           <a className="item">
           <i class="sign in alternate icon"></i>
