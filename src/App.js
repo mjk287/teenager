@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { UserSession } from 'blockstack'
+import { appConfig } from './utils/constants'
+import Home from './blockstackStuff/home'
+import Login from './blockstackStuff/login'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+ state = {
+   userSession: new UserSession( { appConfig } ),
+   doctor: null
+ }
+
+ componentWillMount() {
+   const session = this.state.userSession
+   if(!session.isUserSignedIn() && session.isSignInPending()) {
+     session.handlePendingSignIn()
+     .then((userData) => {
+       if(!userData.username) {
+         throw new Error('This app requires a username.')
+       }
+       window.location = `/`
+     })
+   }
+ }
+
+ 
+
+ render() {
+   return (
+     <main role="main">
+         {this.state.userSession.isUserSignedIn() ?
+           <Home userSession={this.state.userSession} />
+         :
+           <Login userSession={this.state.userSession}/>
+         }
+     </main>
+   );
+ }
 }
 
-export default App;
+export default App
