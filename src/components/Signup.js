@@ -38,6 +38,7 @@ class Signup extends React.Component {
         <input required
           type="text"
           placeholder="name"
+          name="name"
           value={this.state.name}
           onChange={this.changeHandler}
         />
@@ -64,17 +65,20 @@ class Signup extends React.Component {
 
         <input required
           type="text"
+          name="email"
           placeholder="email"
           value={this.state.email}
           onChange={this.changeHandler}
         />
         <input required
+          name="password"
           type="password"
           placeholder="password"
           value={this.state.password}
           onChange={this.changeHandler}
         />
         <input required
+          name="passwordConfirmation"
           type="password"
           placeholder="password"
           value={this.state.passwordConfirmation}
