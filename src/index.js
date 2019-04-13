@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+//import CounselorInfoCard from './components/CounselorInfoCard.js'
+
+import PostCard from './components/PostCard';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
