@@ -35,18 +35,19 @@ class App extends Component {
     }
   }
 
-  signupSubmitHandler = userInfo => {
+  signupSubmitHandler = (e, userInfo) => {
+    e.preventDefault()
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
-        accepts: "application/json"
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
-      body: JSON.stringify({ user: userInfo })
+      body: JSON.stringify( userInfo )
     })
       .then(resp => resp.json())
       .then(userData => {
-        this.setState({ user: userData.user }, () => {
+        this.setState({user: userData} , () => {
           localStorage.setItem("token", userData.jwt);
           this.props.history.push("/home");
         });
@@ -115,7 +116,7 @@ class App extends Component {
         <Switch>
           <Route
             path="/signup"
-            render={() => <Signup submitHandler={this.signupSubmitHandler} />}
+            render={() => <Signup signupSubmitHandler={this.signupSubmitHandler} />}
           />
           <Route
             path="/login"

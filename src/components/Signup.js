@@ -12,29 +12,13 @@ class Signup extends React.Component {
 
   changeHandler = e => {
     this.setState({
-      [e.target.placeholder]: e.target.value
-    });
-  };
-
-  submitHandler = e => {
-    e.preventDefault();
-    if(this.state.password === this.state.passwordConfirmation)
-    {
-      this.props.submitHandler(this.state);
-      this.setState({
-        email: "",
-        password: "",
-        passwordConfirmation: "",
-        name:"",
-        role:"",
-        gender:""
-      });
-    }
+      [e.target.name]: e.target.value
+    }, () => console.log(this.state));
   };
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
+      <form onSubmit={(e) => this.props.signupSubmitHandler(e, this.state)}>
         <input required
           type="text"
           placeholder="name"
@@ -45,8 +29,8 @@ class Signup extends React.Component {
         <select required
           value={this.state.gender}
           onChange={this.changeHandler}
-          name="house">
-          <option value="" >Select Your Gender</option>
+          name="gender">
+          <option value="" disabled selected>Gender</option>
            <option value="Male" >Male</option>
            <option value="Female" >Female</option>
            <option value="Transgender" >Transgender</option>
@@ -57,9 +41,9 @@ class Signup extends React.Component {
          <select required
            value={this.state.role}
            onChange={this.changeHandler}
-           name="house">
-            <option value="" >Select Your Role</option>
-            <option value="Male" >Student</option>
+           name="role">
+           <option value="" disabled selected>Role</option>
+            <option value="Student" >Student</option>
             <option value="Counselor" >Counselor</option>
           </select>
 
@@ -73,14 +57,14 @@ class Signup extends React.Component {
         <input required
           name="password"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={this.state.password}
           onChange={this.changeHandler}
         />
         <input required
           name="passwordConfirmation"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={this.state.passwordConfirmation}
           onChange={this.changeHandler}
         />
