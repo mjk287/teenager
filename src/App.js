@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./containers/Home";
 // import Error from "./components/Error";
-import NavBar from "./components/NavBar";
+// import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { Route, Switch, withRouter } from "react-router-dom";
+
+///optinal for now goes on Navbar
+import { Link } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -65,7 +68,7 @@ class App extends Component {
         localStorage.setItem('token', userData.jwt)
         this.setState(
           { user: userData.user },
-          () => this.props.history.push("/home")
+          () => this.props.history.push("/rappers")
         )
       });
   };
@@ -88,7 +91,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar handleLogout={this.handleLogout} user={this.state.user} />
+        <ul>
+         <Link to="/signup">
+           <li>Sign Up</li>
+         </Link>
+         <Link to="/login">
+           <li>Log In</li>
+         </Link>
+         <li
+           onClick={(e) => this.handleLogout()}
+         >
+           Log Out
+         </li>
+       </ul>
+
         <Switch>
           <Route
             path="/signup"
@@ -99,7 +115,6 @@ class App extends Component {
             render={() => <Login submitHandler={this.loginSubmitHandler} />}
           />
           <Route path="/home" render={() => <Home user={this.state.user} />} />
-
           <Route path="/"  />
         </Switch>
       </div>
