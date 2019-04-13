@@ -1,14 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react'
 
-export default class PostCard extends Component {
 
-  render(){
-    return(
-      <div>
-        <h1>PostCard</h1>
-
-      </div>
+const PostCard = (props) => {
+    return (
+        <div>
+            <h1>Post title goes here</h1>
+            <p>post content goes here</p>
+        </div>
     )
-  }
-
 }
+
+export default PostCard
