@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
+import postAdapter from '../adapters/postAdapter'
 
 class StudentPostForm extends Component {
 
   state = {
-    name: '',
-    title: '',
+    user_id: 1,
     content: '',
-    active: true,
-    asigned: false
+    assign_to: 0
   }
 
   onChangeInput = (e) => {
@@ -16,24 +15,23 @@ class StudentPostForm extends Component {
     }, () => console.log(this.state))
   }
 
-  onSubmitPost = (e) => {
+  onSubmitPost = (e, postObj) => {
     e.preventDefault()
+    this.postStudentToApi(postObj)
+
   }
 
-  postStudentFormApi = () => {
-    
+  // this need to go to PostList
+  postStudentToApi = (postObj) => {
+    postAdapter.postPost(this.state)
   }
 
   render() {
     return (
       <div className="student-post-form">
         <ul>
-          <form onSubmit={(e) => this.onSubmitPost(e)} onChange={(e) => this.onChangeInput(e)}>
-            <li>Name: <input type="text" name="name" value={this.state.name} /></li>
-            <li>Title: <input type="text" name="title" value={this.state.title} /></li>
-            Content: <li><textarea name="content" value={this.state.content} /></li>
-            <li><input type="text" name="active" value={this.state.active} /></li>
-            <li><input type="text" name="asigned" value={this.state.asigned} /></li>
+          <form onSubmit={(e) => this.onSubmitPost(e, this.state)} >
+            Content: <li><textarea name="content" value={this.state.content} onChange={(e) => this.onChangeInput(e)}/></li>
             <li><input type="submit" name="Submit"/></li>
           </form>
         </ul>
