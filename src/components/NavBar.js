@@ -1,34 +1,51 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { Link, withRouter} from "react-router-dom";
 
-const NavBar = (props) => {
+class NavBar extends Component {
 
-// const changeNavBarOptions = () => {
-//     if (props.role === 'counselor') {
-//         return `${props.name} Profile`
-//     } else if (props.role === 'student') {
-//         return `${props.name} Profile`
-//     }
-// }
+  render(){
+  
     return (
-        <div className="ui  menu">
+        <div className="ui menu">
         <div className="header left item">
           Mental Health App For Teens
         </div>
-  <a className="item">
-  <i class="home icon"></i>
-    Home
-  </a>
-  <a className="item">
-  <i class="user icon"></i>
-     My Profile
-  </a>
-  <a className="item">
-  <i class="sign in alternate icon"></i>
-    SignUp
-  </a>
-</div>
-    )
+        <h1>  </h1>
+        <Link to="/home">
+            <a className="item">
+            <i class="home icon"></i>
+              Home
+            </a>
+        </Link>
+        <Link to="/home">
+          <a className="item">
+          <i class="user icon"></i>
+             My Profile
+          </a>
+        </Link>
+        <Link to="/signup">
+          <a className="item">
+          <i class="sign in alternate icon"></i>
+            SignUp
+          </a>
+        </Link>
 
+        <Link to="/login">
+          <a className="item">
+          <i class="sign in alternate icon"></i>
+            Log In
+          </a>
+        </Link>
+        <Link to="/signup">
+          <a className="item">
+          <i class="sign in alternate icon"></i>
+            SignUp
+          </a>
+        </Link>
+
+        </div>
+    )
+  }
 }
 
 export default NavBar
