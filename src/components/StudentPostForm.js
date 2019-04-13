@@ -21,7 +21,7 @@ class StudentPostForm extends Component {
   }
 
   postStudentFormApi = () => {
-    
+
   }
 
   render() {
