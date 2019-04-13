@@ -42,10 +42,10 @@ class Signup extends React.Component {
           onChange={this.changeHandler}
         />
         <select required
-          defaultValue={this.state.gender}
-          onChange={this.changeHandler}
           value={this.state.gender}
+          onChange={this.changeHandler}
           name="house">
+          <option value="" >Select Your Gender</option>
            <option value="Male" >Male</option>
            <option value="Female" >Female</option>
            <option value="Transgender" >Transgender</option>
@@ -54,9 +54,8 @@ class Signup extends React.Component {
          </select>
 
          <select required
-           defaultValue={this.state.role}
-           onChange={this.changeHandler}
            value={this.state.role}
+           onChange={this.changeHandler}
            name="house">
             <option value="" >Select Your Role</option>
             <option value="Male" >Student</option>

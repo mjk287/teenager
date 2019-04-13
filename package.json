@@ -5,8 +5,13 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-scripts": "2.1.8",
     "semantic-ui-css": "^2.4.1"
+=======
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8"
+>>>>>>> f11fbfc7c56901464318a2cfd37e8376259321ed
   },
   "scripts": {
     "start": "react-scripts start",

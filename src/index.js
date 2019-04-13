@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 // import './index.css';
@@ -26,3 +27,16 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+=======
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+>>>>>>> f11fbfc7c56901464318a2cfd37e8376259321ed
