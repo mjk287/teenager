@@ -1,4 +1,3 @@
-
 # Mental Health Peer-to-Counselor Help App
 
 One Paragraph of project description goes here
@@ -11,37 +10,36 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```Give examples```
+```
+Give examples
+```
 
 ### Installing
 
- 1. Fork and clone the backend API: https://github.com/kangyongn/hackathon-backend
+A step by step series of examples that tell you how to get a development env running
 
- 2. Cd to the backend directory, run bundle install, run rails s
+Say what the step will be
 
- 3.
-
- 2. npm install
-
- 1. npm install
-
- 2.
-
-```Give the example```
+```
+Give the example
+```
 
 And repeat
 
-```until finished```
+```
+until finished
+```
 
 End with an example of getting some data out of the system or using it for a little demo
 
 
 ## Authors
 
-* **Myung Kim** - https://github.com/mjk287
-* **Maximo Bautista** - [](https://github.com/)
+* **Myung Kim** - [mjk287](https://github.com/mjk287)
+* **Maximo Bautista** - [link04](https://github.com/link04)
+* **James Kang** -  [kangyongn](https://github.com/kangyongn)
+* **Tracy Ho** - [Tracyaa](https://github.com/Tracyaa)
 * **Andy Reyes** - [AndyRey7](https://github.com/AndyRey7)
-* **James Kang** -  [](https://github.com/lltchen)
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
